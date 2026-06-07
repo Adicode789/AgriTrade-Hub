@@ -1,0 +1,84 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+     <body>
+     <main>
+          
+          <div class="row"> 
+               <div class="col-sm-12"> 
+                 <div class="card"> 
+                     <div class="card-header bg-success">
+                       <h4 class="text-center text-white fw-bold m-0">Enquiries</h4>
+                     </div>
+                     <div class="card-body">
+                       <div class="table-responsive">
+                          <table class="table table-bordered" id="example">
+                           <thead>
+                             <tr>
+                                <th>Sr. No.</th>      
+                                <th>Name</th>
+                                <th>Contact No</th>
+                                <th>Email</th>
+                                <th>Subject</th> 
+                                <th>Message</th> 
+                                <th>Address</th>
+                                <th>Enq Date</th>
+                               
+                             </tr>
+                           </thead>
+                           <tbody>
+                              <tr th:each="enq, srno : ${enqList}">
+                                  <td class="text-center" th:text="${srno.index + 1}"> </td> 
+                                  <td th:text="${enq.name}"> </td>
+                                  <td th:text="${enq.contactNumber}"> </td>
+                                  <td th:text="${enq.email}"> </td>
+                                  <td th:text="${enq.subject}"> </td>
+                                   <td th:text="${enq.message}"> </td>
+                                  <td th:text="${enq.address}"> </td>
+                                  <td th:text="${enq.enqDate}"> </td>
+                                 
+                              </tr>
+							 
+							  
+							  
+							  <div class="row">
+							  				<div class="col-sm-9 mx-auto md-5">
+							  					<div class="card">
+							  						<!--<div class="card-header bg-success p-2">
+							  							<h5 class="text-center m-0 text-white fw-bold">Manage Product</h5>
+							  						</div>-->
+							  						<div class="card-body">
+							  							<div class="table-responsive">
+							  								<table class="table table-bordered">
+							  									<thead>
+							  										<tr>
+							  											<th>Sr.no</th>
+							  											<th>Subject</th>
+							  											<th>Action</th>
+							  										</tr>
+							  									</thead>
+							  									<tbody>
+							  										<tr th:each="enq, srno :${enqList}">
+							  											<td th:text="${srno.index + 1}" style="padding: 4px 10px !important">1</td>
+							  											<td th:text="${enq.subject}" style="padding: 4px 10px !important">ABCD</td>
+																		
+							  											<td class="text-center" style="padding: 4px 10px !important">
+							  											<a  th:href="@{DeleteEnquiry(id=${enq.id})}"onclick="return confirm('are you sure want to delete?')" class="btn btn-danger">Delete</a>
+							  											</td>
+							  										</tr>
+							  									</tbody>
+							  								</table>
+							  							</div>
+							  						</div>
+							  					</div>
+							  				</div>
+							  			</div>
+							  
+                           </tbody>
+                          </table>
+                       </div>
+                     </div>
+            </div> 
+          </div>
+          </div>
+          </main>
+     </body>
+</html>

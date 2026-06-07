@@ -1,0 +1,55 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+	<body>
+		<main>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="card">
+						<div class="card-header bg-success">
+							<h4 class="text-center text-white fw-bold m-0">Manage Farmers</h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="example">
+									<thead>
+										<tr>
+											<th>Sr. No.</th>
+											<th>Profile Pic</th>
+											<th>Name</th>
+											<th>Contact No</th>
+											<th>Email</th>
+											<th>Aadhar No.</th>
+											<th>Pancard No.</th>
+											<th>Address</th>
+											<th>Reg. Date</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="farmer, srno : ${farmerList}">
+											<td class="text-center" th:text="${srno.index +1}"></td>
+											<td>@</td>
+											<td th:text="${farmer.name}"></td>
+											<td th:text="${farmer.contactNumber}"></td>
+											<td th:text="${farmer.email}"></td>
+											<td th:text="${farmer.aadharNumber}"></td>
+											<td th:text="${farmer.pancardNumber}"></td>
+											<td th:text="${farmer.address}"></td>
+											<td th:text="${farmer.regDate}"></td>
+											<td>
+												<a th:if="${farmer.status.name() == 'PENDING'}" th:href="@{FarmerStatus(id = ${farmer.id})}" class=" btn btn-warning btn-sm"  th:text="${farmer.status}"></a>
+												<a th:if="${farmer.status.name()=='VERIFIED'}" th:href="@{FarmerStatus(id = ${farmer.id})}" class="btn btn-success btn-sm" th:text="${farmer.status}"></a>
+												<a th:if="${farmer.status.name()=='DISABLED'}" th:href="@{FarmerStatus(id = ${farmer.id})}" class="btn btn-danger btn-sm" th:text="${farmer.status}"></a>
+
+											</td>
+										</tr>
+									</tbody>
+									
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

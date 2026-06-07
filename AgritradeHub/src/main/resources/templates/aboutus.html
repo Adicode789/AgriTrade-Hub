@@ -1,0 +1,158 @@
+<html th:replace="~{base::layout(~{::main})}">
+<body class="bg-light">
+<main>
+
+  <!-- Hero Section -->
+  <section class="py-5 text-center text-white" 
+           style="background: linear-gradient(135deg, #198754, #20c997, #0dcaf0);">
+    <div class="container py-5">
+      <h1 class="fw-bold display-4">Hukmawati Cold Storage Pvt. Ltd.</h1>
+      <p class="lead">Redefining Agri-Logistics with Innovation & Integrity</p>
+    </div>
+  </section>
+
+  <!-- About the Client -->
+  <section class="container py-5 bg-white rounded-4 shadow-sm mt-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <img th:src="@{/Images/coldstorage.png}" alt="Cold Storage"
+             class="img-fluid rounded-4 shadow-lg border border-3 border-success-subtle">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold text-success mb-3">About the Client</h2>
+        <p class="text-muted">
+          Based in <strong>Barabanki, Uttar Pradesh</strong>, Hukmawati Cold Storage is a 
+          <strong>leading agri-logistics provider</strong> offering state-of-the-art cold storage 
+          facilities. By preserving produce and reducing post-harvest losses, they help farmers 
+          maximize their profits.
+        </p>
+        <p class="text-muted">
+          Their focus on <strong>modernizing agri-logistics</strong> makes them an 
+          <strong>ideal partner</strong> for <span class="fw-bold text-success">AgriTrade Hub</span>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="py-5" 
+           style="background: linear-gradient(120deg, #f8f9fa, #e6f9f0);">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 text-gradient">Our Vision & Mission</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card glass-card text-center p-5 h-100">
+            <i class="fa-solid fa-lightbulb fa-3x text-warning mb-4"></i>
+            <h4 class="fw-bold text-success">Vision</h4>
+            <p class="text-muted">
+              To revolutionize agricultural trade with technology, ensuring 
+              <strong>fair pricing</strong> & <strong>fresh produce</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card glass-card text-center p-5 h-100">
+            <i class="fa-solid fa-bullseye fa-3x text-danger mb-4"></i>
+            <h4 class="fw-bold text-success">Mission</h4>
+            <p class="text-muted">
+              To eliminate middlemen, enable <strong>transparent payments</strong>, 
+              and create a <strong>sustainable agri-trade ecosystem</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectives -->
+  <section class="py-5" style="background-color: #f0fff4;">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 text-gradient">Our Objectives</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card glass-card text-center p-4 h-100">
+            <i class="fa-solid fa-users fa-2x text-primary mb-3"></i>
+            <h5 class="fw-bold">Empower Farmers</h5>
+            <p class="text-muted">Fair pricing, quick payments & easy management.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card glass-card text-center p-4 h-100">
+            <i class="fa-solid fa-store fa-2x text-success mb-3"></i>
+            <h5 class="fw-bold">Support Merchants</h5>
+            <p class="text-muted">Browse stock, place orders & track deliveries.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card glass-card text-center p-4 h-100">
+            <i class="fa-solid fa-chart-line fa-2x text-danger mb-3"></i>
+            <h5 class="fw-bold">Admin Tools</h5>
+            <p class="text-muted">Real-time monitoring & dispute resolution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 text-gradient">👨‍👩‍👧‍👦 Meet Our Team</h2>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="card glass-card p-4 h-100">
+            <img src="/Images/rahul.jpg" class="rounded-circle shadow border border-3 border-info mb-3" width="120" height="120">
+            <h5 class="fw-bold">Rahul Sharma</h5>
+            <p class="text-muted">Founder & CEO</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card glass-card p-4 h-100">
+            <img src="/Images/priya.jpg" class="rounded-circle shadow border border-3 border-info mb-3" width="120" height="120">
+            <h5 class="fw-bold">Priya Verma</h5>
+            <p class="text-muted">Head of Operations</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card glass-card p-4 h-100">
+            <img src="/Images/amit.jpeg" class="rounded-circle shadow border border-3 border-info mb-3" width="120" height="120">
+            <h5 class="fw-bold">Amit Patel</h5>
+            <p class="text-muted">Tech Lead</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom CSS -->
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease-in-out;
+      border: none;
+      color: inherit;
+    }
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      background-color: #198754 !important; /* Bootstrap success color */
+      color: #fff !important;
+    }
+    .glass-card:hover h4,
+    .glass-card:hover h5,
+    .glass-card:hover p,
+    .glass-card:hover i {
+      color: #fff !important;
+    }
+    .text-gradient {
+      background: linear-gradient(45deg, #198754, #20c997, #0dcaf0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+
+</main>
+</body>
+</html>

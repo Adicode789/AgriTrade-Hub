@@ -1,0 +1,54 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+	<body>
+		<main>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="card">
+						<div class="card-header bg-success">
+							<h4 class="text-center text-white fw-bold m-0">Manage Merchants</h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="Example">
+									<thead>
+										<tr>
+											<th>Sr. No.</th>
+											<th>Profile Pic</th>
+											<th>Name</th>
+											<th>Contact No</th>
+											<th>Email</th>
+											<th>Aadhar No.</th>
+											<th>Pancard No.</th>
+											<th>Address</th>
+											<th>Reg. Date</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="merchant, srno : ${merchantList}">
+											<td class="text-center" th:text="${srno.index +1}"></td>
+											<td>@</td>
+											<td th:text="${merchant.name}"></td>
+											<td th:text="${merchant.contactNumber}"></td>
+											<td th:text="${merchant.email}"></td>
+											<td th:text="${merchant.aadharNumber}"></td>
+											<td th:text="${merchant.pancardNumber}"></td>
+											<td th:text="${merchant.address}"></td>
+											<td th:text="${merchant.regDate}"></td>
+											<td>
+												<a th:if="${merchant.status.name() == 'PENDING'}" th:href="@{MerchantStatus(id = ${merchant.id})}" class=" btn btn-warning btn-sm"  th:text="${merchant.status}"></a>
+												<a th:if="${merchant.status.name()=='VERIFIED'}" th:href="@{MerchantStatus(id = ${merchant.id})}" class="btn btn-success btn-sm" th:text="${merchant.status}"></a>
+												<a th:if="${merchant.status.name()=='DISABLED'}" th:href="@{MerchantStatus(id = ${merchant.id})}" class="btn btn-danger btn-sm" th:text="${merchant.status}"></a>
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

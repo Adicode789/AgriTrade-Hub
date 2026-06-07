@@ -1,0 +1,104 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="container my-4">
+
+        <!-- Profile Header -->
+        <div class="row">
+          <div class="col-sm-11 mx-auto">
+            <div class="card shadow-sm p-3">
+              <div class="row align-items-center px-3">
+                
+                <!-- Welcome Text -->
+                <div class="col-sm-6 pt-3">
+                  <h5 class="m-0">
+                    Welcome, <span class="text-primary" th:text="${admin.name}"></span>
+                  </h5>
+                  <p class="text-muted">View and manage your profile from here</p>
+                </div>
+
+                <!-- Profile Picture + Contact -->
+                <div class="col-sm-6 text-sm-end text-center">
+                  <img class="rounded-circle border"
+                       alt="Profile Picture"
+                       th:src="@{'/ProfilePicture/' + ${admin.profilePic}}"
+                       th:if="${admin.profilePic != null}"
+                       style="width: 60px; height: 60px; object-fit: cover;">
+                       
+                  <img class="rounded-circle border"
+                       alt="Default Picture"
+                       src="../assets/img/dummy.jpg"
+                       th:if="${admin.profilePic == null}"
+                       style="width: 60px; height: 60px; object-fit: cover;">
+
+                  <p th:text="${admin.contactNumber}" class="m-0 fw-semibold"></p>
+                  <p th:text="${admin.email}" class="m-0 text-muted"></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="row mt-4">
+          <div class="col-sm-11 mx-auto">
+            <div class="card shadow-sm p-4">
+              <div class="row g-4 align-items-start">
+
+                <!-- Profile Picture Upload -->
+                <div class="col-sm-4 text-center">
+                  <img class="border rounded shadow-sm"
+                       alt="Profile Picture"
+                       th:src="@{'/ProfilePicture/' + ${admin.profilePic}}"
+                       th:if="${admin.profilePic != null}"
+                       style="width: 150px; height: 200px; object-fit: cover;">
+                       
+                  <img class="border rounded shadow-sm"
+                       alt="Default Picture"
+                       src="../assets/img/dummy.jpg"
+                       th:if="${admin.profilePic == null}"
+                       style="width: 150px; height: 200px; object-fit: cover;">
+
+                  <!-- Upload Form -->
+                  <form method="post" enctype="multipart/form-data" class="mt-3">
+                    <div class="input-group">
+                      <input name="ImageFile" type="file"
+                             class="form-control"
+                             required
+                             accept=".png, .jpg, .jpeg, .webp">
+                      <button class="btn btn-success">Upload</button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Farmer Personal Data -->
+                <div class="col-sm-8">
+                  <h6 class="text-center mb-3">Your Personal Data</h6>
+                  <table class="table table-bordered table-striped w-75 mx-auto shadow-sm">
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="w-50">Contact No.</th>
+                        <td th:text="${admin.contactNumber}"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Aadhar No.</th>
+                        <td th:text="${admin.aadharNumber}"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pancard No.</th>
+                        <td th:text="${admin.pancardNumber}"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>

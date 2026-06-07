@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en" th:fragment="layout(content)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>🌾 AgritradeHub</title>
+    <link href="/img/fav-icon.jpg" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      /* Custom base enhancements */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f8faf8;
+        color: #2f2f2f;
+      }
+
+      /* Navbar styling & hover */
+      nav.navbar {
+        box-shadow: 0 4px 10px rgb(20 120 30 / 0.3);
+        transition: background-color 0.3s ease;
+      }
+
+      nav.navbar:hover {
+        background-color: #1a4d1a;
+      }
+
+      .navbar-brand h3 {
+        font-weight: 900;
+        letter-spacing: 1.2px;
+        color: #eaf5ea;
+        user-select: none;
+      }
+
+      .navbar-brand img {
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-brand img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Nav link buttons */
+      .navbar-nav .nav-link.btn {
+        font-weight: 600;
+        padding: 0.35rem 1rem;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .navbar-nav .nav-link.btn.btn-dark {
+        background-color: #2e7d32;
+        border: none;
+      }
+
+      .navbar-nav .nav-link.btn.btn-dark:hover,
+      .navbar-nav .nav-link.btn.btn-dark:focus {
+        background-color: #1b4d1b;
+        color: #d4f7d4;
+      }
+
+      /* Dropdown toggle */
+      .nav-link.dropdown-toggle {
+        font-weight: 700;
+        color: #e0f2e0 !important;
+        cursor: pointer;
+      }
+
+      .nav-link.dropdown-toggle:hover {
+        color: #a0d6a0 !important;
+      }
+
+      .dropdown-menu {
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: #2e7d32;
+        color: white !important;
+      }
+
+      /* Footer styling */
+      footer {
+        font-family: 'Segoe UI', sans-serif;
+        background: #1c1c1c;
+        color: #cfd8c7;
+        letter-spacing: 0.03em;
+      }
+
+      footer h4,
+      footer h5 {
+        color: #66bb6a;
+        font-weight: 800;
+      }
+
+      footer a {
+        color: #a5d6a7;
+        transition: color 0.3s;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: #80c97b;
+        text-decoration: underline;
+      }
+
+      /* Contact icons in footer */
+      footer i {
+        font-size: 1.2rem;
+        color: #81c784;
+        margin-right: 0.5rem;
+      }
+
+      /* Responsive spacing */
+      @media (max-width: 768px) {
+        .navbar-brand h3 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Alert animation */
+      .alert-fadeout {
+        animation: fadeOutAlert 4s forwards;
+      }
+
+      @keyframes fadeOutAlert {
+        0% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid px-0">
+      <nav class="navbar navbar-expand-lg bg-success px-3 shadow-sm sticky-top">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand d-flex align-items-center"
+            href="/"
+            aria-label="Agritrade Hub Home"
+            ><img
+              src="Images/logo.jpg"
+              width="80"
+              class="me-3 img-fluid"
+              alt="Agritrade Logo"
+          /><h3 class="fw-bold mb-0">AgritradeHub</h3></a
+          >
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNavDropdown"
+          >
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-white btn btn-dark rounded-pill me-2"
+                  aria-current="page"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-white btn btn-dark rounded-pill me-2"
+                  href="/AboutUs"
+                  >About Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-white btn btn-dark rounded-pill me-2"
+                  href="/Service"
+                  >Services</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white me-2"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Registration</a
+                >
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/FormerRegistration"
+                      >Farmer Registration</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/MerchantRegistration"
+                      >Merchant Registration</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-white btn btn-dark rounded-pill me-2"
+                  href="/ContactUs"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-white btn btn-danger mx-4 rounded-pill"
+                  href="/Login"
+                  >Login Here</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main content loaded dynamically -->
+      <div th:replace="${content}"></div>
+
+     <!--footer section start-->
+	   
+	   <footer class="bg-dark text-light pt-5 pb-4">
+	     <div class="container">
+	       <div class="row gy-5">
+
+	         <!-- Company Info -->
+	         <div class="col-12 col-md-3">
+	           <h5 class="text-uppercase mb-4">AgritradeHub</h5>
+	           <p>
+	             Chinhut, Lucknow<br>
+	             Uttar Pradesh, 226028<br>
+	             <strong>Phone:</strong> +91 9956110388<br>
+	             <strong>Email:</strong> adityamaddheshiya499@gmail.com
+	           </p>
+	         </div>
+
+	         <!-- Useful Links -->
+	         <div class="col-6 col-md-2">
+	           <h6 class="text-uppercase mb-3">Useful Links</h6>
+	           <ul class="list-unstyled">
+	             <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Services</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+	           </ul>
+	         </div>
+
+	         <!-- Services -->
+	         <div class="col-6 col-md-3">
+	           <h6 class="text-uppercase mb-3">Our Services</h6>
+	           <ul class="list-unstyled">
+	             <li><a href="#" class="text-white-50 text-decoration-none">Secure Login</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Live Product Listings</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Order Management</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Marketing</a></li>
+	             <li><a href="#" class="text-white-50 text-decoration-none">Category-wise Listings</a></li>
+	           </ul>
+	         </div>
+
+	         <!-- Newsletter & Social -->
+	         <div class="col-12 col-md-4">
+	           <h6 class="text-uppercase mb-3">Subscribe to Our Agritrade Hub</h6>
+	           <form class="mb-3">
+	             <div class="input-group">
+	               <input type="email" class="form-control" placeholder="Email Address" aria-label="Email Address">
+	               <button class="btn btn-primary" type="submit">Subscribe</button>
+	             </div>
+	           </form>
+	           <h6 class="text-uppercase mb-2">Follow Us</h6>
+	           <div class="d-flex gap-3">
+	             <a href="https://www.facebook.com/" class="text-white fs-5"><i class="fa-brands fa-facebook-f"></i></a>
+	             <a href="https://x.com/i/flow/login" class="text-white fs-5"><i class="fa-brands fa-x-twitter"></i></a>
+	             <a href="https://www.instagram.com/accounts/login/?hl=en" class="text-white fs-5"><i class="fa-brands fa-instagram"></i></a>
+	             <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" class="text-white fs-5"><i class="fa-brands fa-linkedin-in"></i></a>
+	             <a href="https://www.youtube.com/@adityamaddheshiya8052" class="text-white fs-5"><i class="fa-brands fa-youtube"></i></a>
+	           </div>
+	         </div>
+
+	       </div>
+
+	       <!-- Bottom Attribution -->
+	       <div class="border-top pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
+	         <p class="mb-0 text-white-50 text-center text-md-start">
+	           &copy; 2025 <strong>AgritradeHub</strong>. All rights reserved.
+	         </p>
+	         <p class="mb-0 text-white-50 text-center text-md-end">
+	           Designed by <strong>Aditya Maddheshiya</strong> | Distributed by <strong>Softpro India</strong>
+	         </p>
+	       </div>
+	     </div>
+	   </footer>
+  
+	   
+	   <!--footer section ended-->
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <input type="hidden" id="msg" th:if="${msg}" th:value="${msg}" />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const msg = document.getElementById("msg");
+        if (msg && msg.value.trim() !== "") {
+          const alertDiv = document.createElement("div");
+          alertDiv.classList.add(
+            "alert",
+            "alert-success",
+            "fixed-top",
+            "text-center",
+            "alert-fadeout"
+          );
+          alertDiv.style.zIndex = "1050"; // Higher than navbar
+          alertDiv.textContent = msg.value;
+          document.body.appendChild(alertDiv);
+          setTimeout(() => alertDiv.remove(), 4000);
+        }
+      });
+    </script>
+  </body>
+</html>

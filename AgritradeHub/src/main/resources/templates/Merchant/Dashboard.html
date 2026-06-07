@@ -1,0 +1,124 @@
+<html th:replace="~{Merchant/Merchantbase::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="row m-1" style="height: 67vh; overflow: hidden;">
+        
+        <!-- Sidebar -->
+        <div class="col-sm-2 bg-white border-end shadow-sm p-3 rounded d-flex flex-column"
+             style="height: 100%; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
+          <h6 class="fw-bold mb-3 text-success">
+            <i class="bi bi-list me-2"></i> Categories
+          </h6>
+          <ul class="list-group list-group-flush flex-grow-1">
+            <!-- All Products -->
+            <li class="list-group-item border-0 rounded-2 mb-1 shadow-sm"
+                th:classappend="${selectedCategory == null}? 'active bg-success text-white' : ''">
+              <a th:href="@{Dashboard}" class="text-decoration-none d-block fw-semibold"
+                 th:classappend="${selectedCategory==null}? 'text-white' : 'text-dark'">
+                <i class="bi bi-box-seam me-2"></i> All
+              </a>
+            </li>
+
+            <!-- Dynamic Categories -->
+            <li class="list-group-item border-0 rounded-2 mb-1 shadow-sm"
+                th:each="cate : ${categories}" 
+                th:classappend="${selectedCategory == cate.categoryName}? 'active bg-success text-white' : ''">
+              <a th:href="@{Dashboard(category = ${cate.categoryName})}" 
+                 class="text-decoration-none d-block fw-semibold"
+                 th:classappend="${selectedCategory == cate.categoryName}? 'text-white' : 'text-dark'" 
+                 th:text="${cate.categoryName}">
+                <i class="bi bi-tag me-2"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Products Section with Vertical Scroll -->
+        <div class="col-sm-10" 
+             style="height: 100%; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
+          <div class="row g-3 p-2">
+            
+            <!-- Each Product Card -->
+            <div class="col-sm-3" th:each="product : ${productsList}">
+              <div class="card shadow-sm border-0 rounded-3 product-card h-100">
+                
+                <!-- Product Image -->
+                <img th:src="@{'/ProductImage/' + ${product.productImage}}" 
+                     class="card-img-top p-2 rounded-3" 
+                     style="height: 180px; object-fit: contain;" alt="Product">
+
+                <!-- Product Info -->
+                <div class="card-body d-flex flex-column">
+                  <h6 class="card-title fw-bold text-dark text-truncate"
+                      th:text="${product.productName}">
+                      Product Name
+                  </h6>
+                  
+                  <p class="card-text mb-1 small">
+                    <i class="bi bi-currency-rupee text-danger me-1"></i> 
+                    <span class="fw-bold text-danger"
+                          th:text="${product.pricePerUnit + ' Rs.'}"></span>
+                  </p>
+                  
+                  <p class="mb-1 small">
+                    <i class="bi bi-boxes me-1 text-secondary"></i> 
+                    Qty: <span th:text="${product.quantity}" class="fw-bold text-primary"></span> |
+                    <span th:text="${product.status}" 
+                          class="fw-bold ms-1"
+                          th:classappend="${product.status.name() == 'AVAILABLE'}? 'text-success' : 'text-danger'">
+                    </span>
+                  </p>
+                  
+                  <p class="small mb-2">
+                    <i class="bi bi-person-badge text-secondary me-1"></i>
+                    Sold By: <span th:text="${product.farmer.name}" class="fw-bold"></span>
+                  </p>
+                  
+                  <div class="mt-auto">
+                    <a th:href="@{BuyProduct(id = ${product.id})}" 
+                       class="btn btn-success w-100 rounded-pill">
+                      <i class="bi bi-cart-plus me-2"></i> Buy Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- No Products Section -->
+          <div class="row" th:if="${productsList.size() == 0}">
+            <div class="col-sm-11 mx-auto bg-light p-4 text-center rounded shadow-sm">
+              <i class="bi bi-box-seam fa-2x text-muted mb-2"></i>
+              <h6 class="fw-semibold">
+                No products available in 
+                <span th:text="${selectedCategory}" class="text-success">Category</span>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+	  
+	  <!-- Styles -->
+	  <style>
+	    /* Hide scrollbar but allow scroll */
+	    ::-webkit-scrollbar { 
+	      display: none; 
+	    }
+	    
+	    .product-card {
+	      transition: transform 0.3s ease, box-shadow 0.3s ease;
+	    }
+	    .product-card:hover {
+	      transform: translateY(-5px);
+	      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+	    }
+	    .list-group-item:hover {
+	      background-color: #f8fdf8;
+	      transform: scale(1.02);
+	      transition: all 0.2s ease;
+	    }
+	  </style>
+    </main>
+    
+    </body>
+</html>
